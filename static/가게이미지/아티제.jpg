@@ -1,0 +1,136 @@
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>내 마음의 선물, 기프티쇼</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi" />
+<meta name="format-detection" content="telephone=no, address=no, email=no" />
+
+<!-- 공통 적용 스크립트 , 모든 페이지에 노출되도록 설치. 단 전환페이지 설정값보다 항상 하단에 위치해야함 --> 
+<script type="text/javascript" src="https://wcs.naver.net/wcslog.js"> </script> 
+<script type="text/javascript"> 
+if (!wcs_add) var wcs_add={};
+wcs_add["wa"] = "s_3226eb087a67";
+if (!_nasa) var _nasa={};
+wcs.inflow();
+wcs_do(_nasa);
+</script>
+
+<script type="text/javascript">
+	var uAgent = navigator.userAgent.toLowerCase();
+	var mobilePhones = new Array('iphone','ipod','android','blackberry','windows ce','nokia','webos','opera mini','sonyericsson','opera mobi','iemobile');
+	var url = "/main/main.mhows";
+	
+	for(var i=0;i<mobilePhones.length;i++){
+		if(uAgent.indexOf(mobilePhones[i]) != -1) {
+			url = 'https://m.giftishow.com/main/main.mhows';
+		}
+	}
+	
+	document.location.href = url;
+	//document.location.href = "http://www.giftishow.com/Resource/notice/notice.html";
+</script>
+<!-- PlayD Tera-->
+
+
+
+<!-- 카카오모먼트 -->
+<script type="text/javascript" charset="UTF-8" src="//t1.daumcdn.net/adfit/static/kp.js"></script>
+<script>
+    // 카카오모먼트 (방문)
+    kakaoPixel('967469331380875899').pageView();
+</script>
+
+<!-- Global site tag (gtag.js) - Google Ads: 857028071 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-857028071"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'AW-857028071');
+</script>
+
+<!-- 상단 선언 스크립트 : 모든페이지 공통 상단 필수 -->
+<!-- PlayD TERA Log Definition Script Start -->
+<script>
+    (function(win,name){
+        win['LogAnalyticsObject']=name;
+        win[name]=win[name]||function(){(win[name].q=win[name].q||[]).push(arguments)}
+    })(window,'_LA');
+</script>
+
+
+
+
+<!-- head 내 공통 삽입 script -->
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window,document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', '563312805209731');
+    fbq('track', 'PageView');
+
+
+
+
+</script>
+<noscript>
+    <img height="1" width="1"
+         src="https://www.facebook.com/tr?id=563312805209731&ev=PageView
+&noscript=1"/>
+</noscript>
+<!-- End Facebook Pixel Code -->
+</head>
+<body >
+
+<!-- WIDERPLANET  SCRIPT START 2015.9.8 -->
+<div id="wp_tg_cts" style="display:none;"></div>
+<script type="text/javascript">
+var wptg_tagscript_vars = wptg_tagscript_vars || [];
+wptg_tagscript_vars.push(
+(function() {
+	return {
+		wp_hcuid:"",   	/*Cross device targeting을 원하는 광고주는 로그인한 사용자의 Unique ID (ex. 로그인 ID, 고객넘버 등)를 암호화하여 대입.
+							*주의: 로그인 하지 않은 사용자는 어떠한 값도 대입하지 않습니다.*/
+		ti:"23178",			/*광고주 코드*/
+		ty:"Home",		/*트래킹태그 타입*/
+		device:"web"		/*디바이스 종류 (web 또는 mobile)*/
+	};
+}));
+</script>
+<script type="text/javascript" async src="//astg.widerplanet.com/js/wp_astg_4.0.js"></script>
+<!-- // WIDERPLANET  SCRIPT END 2015.9.8 -->
+
+
+
+<!-- 공통 호출 하단 스크립트 : 모든페이지 하단 설치 -->
+<script>
+    //<!-- PlayD TERA Log Script v1.2 -->
+    var _nSA=(function(_g,_s,_p,_d,_i,_h){
+        if(_i.wgc!=_g){_i.wgc=_g;_i.wrd=(new Date().getTime());
+            var _sc=_d.createElement('script');_sc.src=_p+'//sas.techhub.co.kr/'+_s+'gc='+_g+'&rd='+_i.wrd;
+            var _sm=_d.getElementsByTagName('script')[0];_sm.parentNode.insertBefore(_sc, _sm);} return _i;
+    })('TR10238806077','sa-w.js?',location.protocol,document,window._nSA||{},location.hostname);
+    //--<!-- LogAnalytics Script Install -->
+
+    //mobion - Enliple Tracker Start
+    (function(a,g,e,n,t){a.enp=a.enp||function(){(a.enp.q=a.enp.q||[]).push(arguments)};n=g.createElement(e);n.async=!0;n.defer=!0;n.src="https://cdn.megadata.co.kr/dist/prod/enp_tracker_self_hosted.min.js";t=g.getElementsByTagName(e)[0];t.parentNode.insertBefore(n,t)})(window,document,"script");
+    enp('create', 'common', 'giftishow', { device: 'W' });  // W:웹, M: 모바일, B: 반응형
+    enp('send', 'common', 'giftishow');
+    //--mobion - Enliple Tracker End
+
+</script>
+
+</body>
+</html>

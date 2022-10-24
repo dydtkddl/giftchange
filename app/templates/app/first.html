@@ -1,0 +1,367 @@
+<html>
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="../../static/main.css"> -->
+    <link rel="stylesheet" href="../../static/button.css">
+    <style>
+        html {
+            width: 100%;
+
+            text-align: center;
+            background-image: url(../../static/img/배경.gif);
+        }
+
+        #themediv>input,
+        #imgdiv>input {
+            display: none;
+        }
+
+        #themediv>input:checked+label>img,
+        #imgdiv>input:checked+label>img {
+            border: 3px solid black;
+            box-sizing: border-box;
+            filter: grayscale(0%) !important;
+            width: 163px;
+        }
+
+        .img {
+            width: 160px;
+
+            filter: grayscale(50%);
+        }
+
+        .img2 {
+            width: 160px;
+            height: 200px;
+            filter: grayscale(50%);
+        }
+
+        .canvas {
+            height: 650px;
+            position: absolute;
+            left: 55%;
+            top: 165px;
+        }
+
+        li {
+            display: inline-block;
+            /* position: absolute;
+            bottom: 0px; */
+        }
+
+        input[type=text],
+        input[type=number] {
+            position: relative;
+            margin-top: 10px;
+            letter-spacing: 2px;
+            width: 10vw;
+            min-width: 86px;
+            height: 35px;
+            font-size: 100%;
+            text-align: center;
+            font-family: 'Jua', sans-serif;
+            border: 0%;
+            border-radius: 15px;
+            background-color: rgba(0, 0, 0, 0.581);
+            color: rgb(255, 255, 255);
+        }
+
+        select,
+        #inputfake {
+            position: relative;
+            margin-top: 10px;
+            letter-spacing: 2px;
+            width: 15.2vw;
+
+            min-width: 130px;
+            height: 35px;
+            font-size: 100%;
+            text-align: center;
+            font-family: 'Jua', sans-serif;
+            border: 0%;
+            border-radius: 15px;
+            background-color: rgba(0, 0, 0, 0.581);
+            color: rgb(255, 255, 255);
+        }
+
+        #navigate {
+            /* max-width: 700px; */
+            display: block;
+            position: sticky !important;
+            top: 0px;
+            z-index: 5;
+        }
+
+        body {
+            margin-top: 0px;
+            margin-left: 10%;
+            margin-right: 10%;
+            background-color: rgb(87, 85, 85);
+            /* background-image: url(../../static/img/바디배경.gif); */
+            background-size: contain;
+            height: 100vh;
+            margin-bottom: 0px;
+        }
+
+
+
+        #submitbutton {
+            position: absolute;
+            top: -18px;
+            left: 110%;
+
+        }
+
+        /* #mainimg {
+            scale: 25%;
+        } */
+    </style>
+    <script type="text/javascript" src="../../static/qrcode.js"></script>
+
+</head>
+
+
+<body style="min-width: 1000px !important; text-align: center; position: relative;">
+    <nav id="navigate" style="background-color: rgb(20, 16, 20); position: relative;">
+        <img id='mainimg' style="width: 150; height: 150; position: absolute; right:67%; top: -25;"
+            src="https://github.com/sejong-kid/giftticon-project/blob/master/%EB%A9%94%EC%9D%B8%ED%99%94%EB%A9%B4.png?raw=true">
+
+        <div style="width: 100vw; height:100px">
+            <div id='inputbox1' style="position:absolute; left: 35%;">
+                <input type="text" id='input1' placeholder='상품이름입력'>
+                <input type="text" id='input2' placeholder='핀번호입력' onblur="makeCode()">
+                <input type="number" id='input3' placeholder='유효기간입력'>
+            </div>
+            <div id='inputbox2' style="position:absolute; left:35%; top:40px">
+                <select name='type' id='type'>
+                    {% for i in a %}
+                    <option value={{i.name}}>{{i.name}}</option>
+                    {% endfor %}
+                </select>
+                <!-- 드롭다운 -->
+                <div id='brand' style="display:inline-block">
+                    <input id='inputfake' type="text" placeholder="브랜드명">
+                </div>
+                <div id="button">
+
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- <span class="main">
+        
+    </span> -->
+    <nav style="position: sticky;top:0px;">
+    </nav>
+    <!-- 테마선택 -->
+    <div id='whether'>
+        <div style="width:353px; height:250px; width: 24%;
+        min-width: 348.5px;
+        padding-top: 5px;
+        position: absolute;
+        right: 55%;
+        top: 142px;
+        max-width: 400px; 
+        
+        background-color: gray;
+        background-size: contain;">
+            <p
+                style='font-size:17px; background-color: #404040; color: white; margin-top: 0; margin-left: 10px; margin-right: 10px;margin-bottom:2px; padding-top: 5px; padding-bottom: 5px;'>
+                ○ Select Theme
+            </p>
+        </div>
+    </div>
+    <!-- 이미지선택 -->
+    <div id='image123' style="height: 100px;">
+        <div style="height:440px; width: 24%;
+    min-width: 348.5px;
+    padding-top: 5px;
+    position: absolute;
+    top: 424px;
+    right: 55%;
+    max-width: 400px;
+    background-color: gray;
+        background-size: contain;">
+            <p
+                style='font-size:17px;   background-color: #404040; color: white; margin-top: 0; margin-left: 10px; margin-right: 10px;margin-bottom:2px; padding-top: 5px; padding-bottom: 5px;'>
+                ○ Select Image
+            </p>
+        </div>
+    </div>
+    <div id='화살표'>
+        <img src="../../static/img/화살표.jpg" style="scale:15%;">
+    </div>
+    <!-- 캔버스구역 -->
+    <div class='canvas' style="background-color: gray; padding-left:10px; padding-right:10px;padding-top:10px;">
+        <p
+            style='font-size:17px;   background-color: #404040; color: white; margin-top: 0; margin-left: 10px; margin-right: 10px;margin-bottom:6px; padding-top: 5px; padding-bottom: 5px;'>
+            ○ Product
+        </p>
+        <div id="물음표">
+            <img id ='물음표이미지' style='top: -11%; right: -35%; scale: 15%; position: absolute;' src="../../static/img/물음표.png">
+        </div>
+        <canvas id="mycanvas" style="background-color: rgb(87, 85, 85);
+        background-size: contain; height:600px; width:450px; border-radius: 5%;">
+        </canvas>
+    </div>
+    <div id="qrcode" style="display: none;"></div>
+    <img id='whitebg' style='display:none;' src="../../static/img/흰배경.jpg">
+    <footer style="position: absolute; bottom: 10px; text-align: center; padding-top:10px; margin-bottom:-10px; padding-left: 100%;     background-color: #222222;
+        height: 10px;">
+    </footer>
+
+    <script>
+        // qr코드 생성 함수
+        var qrcode = new QRCode(document.getElementById("qrcode"));
+        function makeCode() {
+            var elText = document.getElementById("input2");
+            qrcode.makeCode(elText.value);
+        }
+        // 드롭다운
+        document.querySelector('#type').addEventListener('change', (e) => {
+            value = e.target.value;
+            const ajax = fetch(`/app/filterbrand/?type=${value}`);
+            ajax.then(function (a) {
+                return a.json();
+            }).then(function (b) {
+                console.log(b);
+                let code1 = '<select name="brand" id="brand1" onclick="selectwhether(event)">';
+                code1 += '<option value=브랜드선택>브랜드명</option>'
+                for (i of b) {
+                    code1 += `<option value='${i.name}'>${i.name}</option>`;
+                }
+                code1 += `</select>`;
+                document.querySelector('#brand').innerHTML = code1;
+                document.getElementById('fakebox').remove;
+            })
+        })
+        // 테마선택시 함수
+        function selectwhether(e) {
+            value = e.target.value;
+            let code = `<span class='theme'>
+                <img style = 'display:none;' src='../../static/가게이미지/${document.getElementById('brand1').value}.jpg' id='brandimage'>
+            <div id='themediv' style='background-color:gray; width:25%; 
+            min-width:353px; padding-top:5px; 
+            position: absolute; right: 55%; 
+            top: 142px; max-width:400px;'>
+                    
+                <p
+                style='font-size:17px; background-color: #404040; color: white; margin-top: 0; margin-left: 10px; margin-right: 10px;margin-bottom:2px; padding-top: 5px; padding-bottom: 5px;'>
+                ○ Select Theme
+            </p>
+                    <input onclick="checkradio(event)" class='input' type="radio" name='whether' value='봄' id='spring'>
+                    <label for="spring"><img class='img' id = 'springimg' src="../../static/img/spring.jpg"></label>
+                
+            
+                    <input onclick="checkradio(event)" class='input' type="radio" name='whether' value='여름' id='summer'>
+                    <label for="summer"><img class='img' id = 'summerimg' src="../../static/img/summer.jpg"></label>
+                
+            
+                    <input onclick="checkradio(event)" class='input' type="radio" name='whether' value='가을' id='autumn'>
+                    <label for="autumn"><img class='img' id = 'autumnimg' src="../../static/img/autumn.jpg"></label>
+                
+            
+                    <input onclick="checkradio(event)" class='input' type="radio" name='whether' value='겨울' id='winter'>
+                    <label for="winter"><img class='img' id = 'winterimg' src="../../static/img/winter.jpg"></label>
+                
+            </div>
+            
+        </span>`;
+            document.querySelector('#whether').innerHTML = code;
+        }
+        // 이미지선택시 함수
+        function checkradio(e) {
+            let value = e.target.value;
+            let id = e.target.id;
+            console.log('선택계절 :' + value);
+            console.log(e.target.id);
+            let code = `<span class='image'>
+                <div id = 'imgdiv' style=' background-color: gray; width:25%; 
+                min-width:353px; padding-top: 5px; 
+                position: absolute; top:424px; 
+                right: 55%;max-width:400px;'>
+                    <p style='font-size:17px;   background-color: #404040; color: white; margin-top: 0; margin-left: 10px; margin-right: 10px;margin-bottom:2px; padding-top: 5px; padding-bottom: 5px;'>
+                        ○ Select Image
+                    </p>
+                    <input onclick = "canvas(event)" class='input' type="radio" name='image' value='${value}1' id='${value}1'>
+                    <label for="${value}1"><img class='img2' id='${value}1img' src="../../static/img/${value}1.jpg" ></label>
+        
+    
+                    <input onclick = "canvas(event)" class='input' type="radio" name='image' value='${value}2' id='${value}2'>
+                    <label for="${value}2"><img class='img2' id='${value}2img' src="../../static/img/${value}2.jpg"></label>
+        
+    
+                    <input onclick = "canvas(event)" class='input' type="radio" name='image' value='${value}3' id='${value}3'>
+                    <label for="${value}3"><img class='img2' id='${value}3img' src="../../static/img/${value}3.jpg"></label>
+        
+    
+                    <input onclick = "canvas(event)" class='input' type="radio" name='image' value='${value}4' id='${value}4'>
+                    <label for="${value}4"><img class='img2' id='${value}4img' src="../../static/img/${value}4.jpg"></label>
+        
+    
+          </div>
+            
+        </span>`;
+            document.querySelector('#image123').innerHTML = code;
+        }
+        function canvas(e) {
+            
+            // TimeUnits.SECONDS.sleep(1);
+            let code = `<a href="" class="w-btn w-btn-indigo"type='submit' id="submitbutton" download="gifticonchange.png">download</a>`;
+            document.getElementById('button').innerHTML = code;
+            document.getElementById('물음표이미지').style.display='none';
+            console.log(e.target.id);
+            id = e.target.id;
+            console.log(document.getElementById('brand1'));
+            const canvas = document.getElementById('mycanvas');
+            const ctx = canvas.getContext("2d");
+            canvas.height = 770;
+            canvas.width = canvas.height * 3 / 4;
+            const cw = canvas.width / 2;
+            const ch = canvas.height / 2;
+            const whitewidth = canvas.width * 80 / 100;
+            const whiteheight = canvas.height * 85 / 100;
+            const qrh = canvas.height * 0.55;
+            const qrwidth = canvas.width * 32 / 100;
+            const brandwidth = canvas.width * 40 / 100;
+            let date = document.getElementById('input3').value;
+            let whitebg = document.getElementById('whitebg');
+
+            // 가운데정렬
+            ctx.textAlign = "center";
+            ctx.globalAlpha = 0.7;
+            // 뒷배경 이미지(x축이동거리, y축 이동거리, 사진크기조절width, height)
+            ctx.drawImage(document.getElementById(id + 'img'), 0, 0, canvas.width, canvas.height);
+            //    흰배경
+            ctx.globalAlpha = 0.9;
+            ctx.drawImage(whitebg, cw - whitewidth / 2, 50, whitewidth, whiteheight * 101 / 100);
+            // 브랜드이미지(x축이동거리, y축 이동거리, 사진크기조절width, height)
+            ctx.globalAlpha = 1;
+            ctx.drawImage(document.getElementById('brandimage'), cw - brandwidth / 2, qrh * 41 / 100, brandwidth, brandwidth);
+            // qr이미지(x축이동거리, y축 이동거리, 사진크기조절width, height)
+            ctx.drawImage(document.querySelector('#qrcode>img'), cw - qrwidth / 2, qrh, qrwidth, qrwidth);
+            // 텍스트{브랜드명}
+            ctx.font = "bold 25px sans-serif";
+            ctx.fillText(document.getElementById('brand1').value, cw, canvas.height * 10 / 80, canvas.width * 2 / 3);
+            // 텍스트{상품명}
+            ctx.font = "bold 38px sans-serif";
+            ctx.fillText(document.getElementById('input1').value, cw, canvas.height * 15 / 80, canvas.width * 2 / 3);
+            // 텍스트{핀번호}
+            ctx.font = "bold 23px sans-serif";
+            ctx.fillText(document.getElementById('input2').value, cw, qrh + qrwidth + 25);
+            // 텍스트{유효기간}
+            ctx.font = "bold 30px sans-serif";
+            ctx.fillText(date.slice(0, 4) + '/' + date.slice(4, 6) + '/' + date.slice(6, 8) + '일까지', cw, qrh + qrwidth + 85);
+            document.getElementById('submitbutton').addEventListener('click', event =>
+                event.target.href = canvas.toDataURL()
+            );
+        }
+    </script>
+
+</body>
+
+</html>
